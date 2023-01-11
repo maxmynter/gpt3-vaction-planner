@@ -1,15 +1,15 @@
-import {useState} from "react"
+import { useState } from "react";
 import Title from "./components/title";
 import UserInput from "./components/userInput";
-import DisplayResponse from "./components/displayResponse"
+import DisplayResponse from "./components/displayResponse";
 
 const App = () => {
-    const [gptResponse,setGptResponse] = useState(null) 
-    return (
+  const [gptResponse, setGptResponse] = useState(null);
+  return (
     <div className="app">
       <Title />
-      <UserInput setGptResponse={setGptResponse}/>
-      <DisplayResponse response={gptResponse}/>
+      <UserInput setGptResponse={setGptResponse} />
+      <DisplayResponse response={gptResponse} />
     </div>
   );
 };

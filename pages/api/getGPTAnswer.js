@@ -6,21 +6,19 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-const generatePromptFromInput = ({input}) => (
-    `Me: I want to do a vacation but i am not sure where to and what to do. Can you help me?
+const generatePromptFromInput = ({ input }) =>
+  `Me: I want to do a vacation but i am not sure where to and what to do. Can you help me?
     Travel Agent: Sure thing. What are your requirements?
     Me: ${input.replaceAll(".", ",")}. What do you propose?
-    Travel Agent:`
+    Travel Agent:`;
 
-)
+const callOpenAI = async (request, response) => {
+  console.log("Calling openAI");
+  console.log(request.body);
+  const prompt = generatePromptFromInput(request.body);
+  console.log(prompt);
 
-const callOpenAI = async (request, response) =>{
-    console.log("Calling openAI")
-    console.log(request.body);
-    const prompt = generatePromptFromInput(request.body)
-    console.log(prompt);
-
-    const baseCompletion = await openai.createCompletion({
+  const baseCompletion = await openai.createCompletion({
     model: "text-davinci-003",
     prompt: `${prompt}`,
     temperature: 0.83,
@@ -29,7 +27,17 @@ const callOpenAI = async (request, response) =>{
 
   const basePromptOutput = baseCompletion.data.choices.pop();
   console.log("basePromptOutput", basePromptOutput);
-  
-  response.status(200).json({output: basePromptOutput})
-}
-export default callOpenAI;
+
+  response.status(200).json({ output: basePromptOutput });
+};
+
+const callOpenAIDev = (request, response) => {
+  response
+    .status(200)
+    .json({
+      output: {
+        text: "Sample return text that is used here for development purposes. ",
+      },
+    });
+};
+export default callOpenAIDev;

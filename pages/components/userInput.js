@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const UserInput = ({setGptResponse}) => {
+const UserInput = ({ setGptResponse }) => {
   const [input, setInput] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const handleInput = (event) => {
@@ -11,36 +11,46 @@ const UserInput = ({setGptResponse}) => {
     setIsGenerating(true);
     console.log(input);
 
-    const response = await fetch("../api/getGPTAnswer",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
+    const response = await fetch("../api/getGPTAnswer", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-      body:JSON.stringify({
-        input
-      })
-    })
+      body: JSON.stringify({
+        input,
+      }),
+    });
 
-    const responseData = await response.json()
-    const {output} = responseData
+    const responseData = await response.json();
+    const { output } = responseData;
 
     console.log(output.text);
-    setGptResponse(output.text)
-
-
-    setInput("");
-    setIsGenerating(false)
+    setGptResponse(output.text);
+    setIsGenerating(false);
   };
 
   return (
-    <div className="user-input">
-      <input
-        className="input-field"
-        onChange={handleInput}
-        value={input}
-        placeholder="5 days on a budget from Munich, I like to surf and hike"
-      />
-      <div className="inspire-button-container">
+    <div className="user-interaction">
+      <div className="user-input">
+        <input
+          className="input-field"
+          onChange={handleInput}
+          value={input}
+          placeholder="5 days on a budget from Munich, I like to surf and hike"
+        />
+      </div>
+
+      <div className="buttons-container">
+        {input !== "" ? (
+          <button
+            className="clear-button"
+            onClick={() => {
+              setInput("");
+            }}
+          >
+            Clear Question
+          </button>
+        ) : null}
         <button
           className={
             isGenerating ? "generate-button loading" : "generate-button"

@@ -1,6 +1,6 @@
-const DisplayResponse = ({response}) =>{
-    return (<>
-    {response ? <div>{response}</div>: null}
-    </>)
-}
+const DisplayResponse = ({ response }) => {
+  return (
+    <>{response ? <div className="gpt-response">{response}</div> : null}</>
+  );
+};
 export default DisplayResponse;
