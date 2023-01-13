@@ -34,8 +34,8 @@ const callOpenAI = async (request, response) => {
 const callOpenAIDev = (request, response) => {
   response.status(200).json({
     output: {
-      text: "Sample return text that is used here for development purposes. ",
+      text: `Sample return text that is used here for development purposes. ${Math.random()}`,
     },
   });
 };
-export default callOpenAI;
+export default callOpenAIDev;

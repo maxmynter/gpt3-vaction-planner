@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const UserInput = ({ setGptResponse }) => {
+const UserInput = ({ addQueryResponse }) => {
   const [input, setInput] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const handleInput = (event) => {
@@ -25,7 +25,7 @@ const UserInput = ({ setGptResponse }) => {
     const { output } = responseData;
 
     console.log(output.text);
-    setGptResponse(output.text);
+    addQueryResponse(output.text);
     setIsGenerating(false);
   };
 
