@@ -1,7 +1,18 @@
+html {
+  background: radial-gradient(rgba(255, 255, 255, 0), rgba(250, 250, 250, 0.6))
+      no-repeat center center fixed,
+    url("../resources/images/VacationBackground.jpg") no-repeat center center
+      fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 body {
   font-family: Helvetica, Sans-Serif;
-  color: #cdad6c;
-  background-color: #4c4f7c;
+  color: #023047;
+  background: transparent;
 }
 
 .root {
