@@ -31,7 +31,7 @@ body {
 
 .user-interaction {
   margin: 0 auto;
-  width: 60%;
+  width: 70%;
   height: 50px;
   margin-top: 5%;
   margin-bottom: 5%;
@@ -100,7 +100,7 @@ body {
   background-color: rgba(246, 157, 60, 1);
 }
 
-.generate-button span {
+.user-input span {
   font-weight: bold;
 }
 
@@ -115,29 +115,70 @@ body {
   cursor: default;
 }
 
-.responses-container {
+.highlighted-response {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  margin: auto;
+  background-image: radial-gradient(
+      rgba(1, 1, 1, 0.25),
+      rgba(148, 148, 148, 0.75)
+    ),
+    url("../resources/images/trip_backgrounds/beaches/beach3.jpg");
+  height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  width: 70%;
+  border-radius: 16px;
+  color: white;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.8);
 }
-.gpt-response {
-  background-image: radial-gradient(rgba(0, 0, 0, 9), rgba(1, 1, 1, 0.25)),
+
+.highlighted-response-content {
+  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+}
+
+.responses-container {
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, max(25%, 100px));
+  justify-content: space-between;
+  grid-gap: 5%;
+  margin: auto;
+  margin-bottom: 10%;
+}
+
+.gpt-response,
+.gpt-response-highlighted {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.9), rgba(1, 1, 1, 0.05)),
     url("../resources/images/trip_backgrounds/roads/road2.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   padding: 1%;
-  width: 20%;
-  margin: 1%;
+  margin-top: 20%;
+  height: 200px;
   border-radius: 15px;
   overflow: hidden;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
 }
 
-.gpt-response:hover {
+.gpt-response:hover,
+.gpt-response-highlighted {
   cursor: pointer;
-  background-image: radial-gradient(rgba(0, 0, 0, 9), rgba(253, 252, 252, 0.25)),
+  background-image: radial-gradient(
+      rgba(0, 0, 0, 0.9),
+      rgba(253, 252, 252, 0.25)
+    ),
     url("../resources/images/trip_backgrounds/roads/road2.jpg");
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.8);
 }

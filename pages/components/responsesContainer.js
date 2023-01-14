@@ -4,8 +4,9 @@ import HighlightedResponse from "./highlightedResponse";
 
 const ResponsesContainer = ({ responses }) => {
   const [highlightedResponse, setHighlightedResponse] = useState(null);
+
   return (
-    <div>
+    <>
       <HighlightedResponse response={highlightedResponse} />
       <div className="responses-container">
         {responses.length > 0 &&
@@ -14,10 +15,11 @@ const ResponsesContainer = ({ responses }) => {
               key={response}
               response={response}
               highlightResponse={setHighlightedResponse}
+              highlighted={highlightedResponse === response}
             />
           ))}
       </div>
-    </div>
+    </>
   );
 };
 
