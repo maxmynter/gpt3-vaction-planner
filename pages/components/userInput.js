@@ -1,66 +1,88 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+const getRandomPlaceholder = async () => {
+  const response = await fetch("../api/getSearchBarPlaceholder");
+  const { placeholder } = await response.json();
+  return placeholder;
+};
+
+const emptyInputNote = "You need to type :D Try something like: ";
 
 const UserInput = ({ addQueryResponse }) => {
   const [input, setInput] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
+  const [placeholder, setPlaceholder] = useState("");
+
+  useEffect(() => {
+    const getPlaceholderFromServer = async () => {
+      setPlaceholder(await getRandomPlaceholder());
+    };
+    getPlaceholderFromServer();
+  }, []);
+
   const handleInput = (event) => {
     setInput(event.target.value);
+    if (placeholder.search(emptyInputNote) !== -1) {
+      setPlaceholder(placeholder.slice(emptyInputNote.length + 1, -2));
+    }
   };
 
   const handleSubmit = async () => {
-    setIsGenerating(true);
-    console.log(input);
+    if (input.length > 0) {
+      setIsGenerating(true);
+      console.log(input);
 
-    const response = await fetch("../api/getGPTAnswer", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        input,
-      }),
-    });
+      const response = await fetch("../api/getGPTAnswer", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          input,
+        }),
+      });
 
-    const responseData = await response.json();
-    const { output } = responseData;
+      const responseData = await response.json();
+      const { output } = responseData;
 
-    console.log(output.text);
-    addQueryResponse(output.text);
-    setIsGenerating(false);
+      console.log(output.text);
+      addQueryResponse(output.text);
+      setInput("");
+      setIsGenerating(false);
+    } else {
+      const newPlaceholder = await getRandomPlaceholder();
+      setPlaceholder(`${emptyInputNote}"${newPlaceholder}."`);
+    }
   };
 
   return (
     <div className="user-interaction">
-      <div className="user-input">
-        <input
-          className="input-field"
-          onChange={handleInput}
-          value={input}
-          placeholder="5 days on a budget from Munich, I like to surf and hike"
-        />
-      </div>
-
-      <div className="buttons-container">
-        {input !== "" ? (
-          <button
-            className="clear-button"
-            onClick={() => {
-              setInput("");
+      <div className="user-input-border-wrapper">
+        <div className="user-input">
+          <input
+            className="user-input-field"
+            onChange={handleInput}
+            onKeyDown={(event) => {
+              if (event.code === "Enter" && !isGenerating) {
+                handleSubmit();
+              }
             }}
+            value={input}
+            placeholder={placeholder}
+          />
+          <button
+            className={
+              isGenerating
+                ? "generate-button-text loading"
+                : input.length > 0
+                ? "generate-button-text"
+                : "generate-button-empty-text"
+            }
+            onClick={handleSubmit}
           >
-            Clear Question
+            {isGenerating ? <span> Loading </span> : <span> Inspire </span>}
           </button>
-        ) : null}
-        <button
-          className={
-            isGenerating ? "generate-button loading" : "generate-button"
-          }
-          onClick={handleSubmit}
-        >
-          <div className="generate">
-            {isGenerating ? <h3>Loading</h3> : <h3>Inspire Me</h3>}
-          </div>
-        </button>
+        </div>
       </div>
     </div>
   );
