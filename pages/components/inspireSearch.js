@@ -1,27 +1,25 @@
 import { useState } from "react";
 import UserInput from "./userInput";
-import ResponsesContainer from "./responsesContainer";
+import HighlightedResponse from "./highlightedResponse";
 import Title from "./title";
 import SectionHeader from "./sectionHeader";
 
 const InspireSearch = () => {
-  const [gptResponses, setGptResponses] = useState([]);
+  const [currentResponses, setGptResponses] = useState([]);
   const [highlightedResponse, setHighlightedResponse] = useState(null);
 
   const addQueryResponse = (newResponse) => {
     setHighlightedResponse(newResponse);
-    setGptResponses([newResponse, ...gptResponses]);
+    setGptResponses([newResponse, ...currentResponses]);
   };
   return (
     <>
       <Title />
       <UserInput addQueryResponse={addQueryResponse} />
-      {gptResponses.length > 0 && <SectionHeader text={"Your Trips"} />}
-      <ResponsesContainer
-        highlightedResponse={highlightedResponse}
-        setHighlightedResponse={setHighlightedResponse}
-        responses={gptResponses}
-      />
+      {currentResponses.length > 0 && <SectionHeader text={"Your Trips"} />}
+      {currentResponses.map((response) => (
+        <HighlightedResponse response={response} />
+      ))}
     </>
   );
 };
