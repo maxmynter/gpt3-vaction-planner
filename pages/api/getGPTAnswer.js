@@ -31,10 +31,10 @@ const callOpenAI = async (request, response) => {
     max_tokens: 200,
   });
 
-  const text = tripBaseCompletion.data.choices.pop();
+  const text = tripBaseCompletion.data.choices.pop().text;
   console.log("basePromptOutput", text);
 
-  const titlePrompt = generateTitlePromptFromInput(text.text);
+  const titlePrompt = generateTitlePromptFromInput(text);
 
   const titleBaseCompletion = await openai.createCompletion({
     model: "text-davinci-003",
@@ -42,15 +42,15 @@ const callOpenAI = async (request, response) => {
     temperature: 0.7,
     max_tokens: 10,
   });
-  let title = titleBaseCompletion.data.choices.pop();
+  let title = titleBaseCompletion.data.choices.pop().text;
 
   //Clean title
   title = title.replaceAll('"', "");
   title = title.replaceAll("!", "");
 
   const tripObject = {
-    text: text.text,
-    title: title.text,
+    text: text,
+    title: title,
     prompts: { titlePrompt, tripPrompt },
   };
   console.log(tripObject);
