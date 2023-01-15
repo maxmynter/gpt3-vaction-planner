@@ -182,10 +182,7 @@ body {
 .gpt-response:hover,
 .gpt-response-highlighted {
   cursor: pointer;
-  background-image: radial-gradient(
-      rgba(0, 0, 0, 0.6),
-      rgba(253, 252, 252, 0.25)
-    ),
+  background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(253, 252, 252, 0.5)),
     url("../resources/images/trip_backgrounds/roads/road2.jpg");
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.8);
 }
