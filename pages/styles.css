@@ -39,8 +39,29 @@ body {
   margin-bottom: 3%;
 }
 
-.header-link {
+.header-link-container {
+  width: 90%;
+  margin: auto;
   padding: 1%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-link {
+  padding: 5px;
+}
+
+.nextjs-header-link {
+  color: #023047;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  text-align: center;
+}
+.nextjs-header-link:hover {
+  color: antiquewhite;
+  transform: scale(1.1);
 }
 
 .title,
@@ -80,7 +101,7 @@ body {
 }
 .user-input-border-wrapper {
   height: 100%;
-  padding: 0.5%; /*Border width with respect to user-input-border-wrapper */
+  padding: 3px; /*Border width with respect to user-input-border-wrapper */
   border-radius: 100px;
   background-image: linear-gradient(
     0.25turn,
@@ -216,7 +237,7 @@ body {
   justify-content: center;
   text-align: center;
   padding: 3%;
-  margin-top: 20%;
+  margin-top: 15%;
   height: 200px;
   border-radius: 15px;
   overflow: hidden;
