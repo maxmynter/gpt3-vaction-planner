@@ -9,7 +9,7 @@ const DisplayResponse = ({ response, highlightResponse, highlighted }) => {
           className={highlighted ? "gpt-response-highlighted" : "gpt-response"}
           onClick={() => handleHighlight(response)}
         >
-          {response}
+          <h3>{response.title}</h3>
         </div>
       ) : null}
     </>

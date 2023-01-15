@@ -43,10 +43,20 @@ const UserInput = ({ addQueryResponse }) => {
       });
 
       const responseData = await response.json();
-      const { output } = responseData;
 
-      console.log(output.text);
-      addQueryResponse(output.text);
+      const responseOfPostToDB = await fetch("../api/postTrip", {
+        method: "POST",
+        body: JSON.stringify(responseData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const newTripWithID = await responseOfPostToDB.json();
+
+      console.log("responseOfPostToDB", newTripWithID);
+
+      addQueryResponse(newTripWithID);
       setInput("");
       setIsGenerating(false);
     } else {

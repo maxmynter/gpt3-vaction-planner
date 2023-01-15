@@ -116,15 +116,16 @@ body {
 }
 
 .highlighted-response {
-  display: flex;
-  justify-content: center;
   margin: auto;
+  justify-content: center;
+  align-items: center;
   background-image: radial-gradient(
       rgba(1, 1, 1, 0.25),
       rgba(148, 148, 148, 0.75)
     ),
     url("../resources/images/trip_backgrounds/beaches/beach3.jpg");
-  height: 200px;
+  min-height: 200px;
+  max-height: fit-content;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -135,10 +136,16 @@ body {
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.8);
 }
 
-.highlighted-response-content {
+.highlighted-response-title {
   display: inline-block;
-  display: inline-flex;
-  align-items: center;
+  margin: auto;
+  padding: 3%;
+}
+
+.highlighted-response-text {
+  display: inline-block;
+  margin: auto;
+  padding: 3%;
 }
 
 .responses-container {
@@ -153,7 +160,7 @@ body {
 
 .gpt-response,
 .gpt-response-highlighted {
-  background-image: radial-gradient(rgba(0, 0, 0, 0.9), rgba(1, 1, 1, 0.05)),
+  background-image: radial-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 1, 0.25)),
     url("../resources/images/trip_backgrounds/roads/road2.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -164,7 +171,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 1%;
+  padding: 3%;
   margin-top: 20%;
   height: 200px;
   border-radius: 15px;
@@ -176,7 +183,7 @@ body {
 .gpt-response-highlighted {
   cursor: pointer;
   background-image: radial-gradient(
-      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.6),
       rgba(253, 252, 252, 0.25)
     ),
     url("../resources/images/trip_backgrounds/roads/road2.jpg");

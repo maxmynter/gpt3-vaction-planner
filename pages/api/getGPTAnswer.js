@@ -6,29 +6,55 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-const generatePromptFromInput = ({ input }) =>
+const generateTripPromptFromInput = ({ input }) =>
   `Me: I want to do a vacation but i am not sure where to and what to do. Can you help me?
     Travel Agent: Sure thing. What are your requirements?
     Me: ${input.replaceAll(".", ",")}. What do you propose?
-    Travel Agent:`;
+    Travel Agent: I have the following suggestion.`;
+
+const generateTitlePromptFromInput = (
+  proposal
+) => `Write a very short title for the following travel proposal.
+Proposal: ${proposal}
+Title:`;
 
 const callOpenAI = async (request, response) => {
   console.log("Calling openAI");
   console.log(request.body);
-  const prompt = generatePromptFromInput(request.body);
-  console.log(prompt);
+  const tripPrompt = generateTripPromptFromInput(request.body);
+  console.log(tripPrompt);
 
-  const baseCompletion = await openai.createCompletion({
+  const tripBaseCompletion = await openai.createCompletion({
     model: "text-davinci-003",
-    prompt: `${prompt}`,
+    prompt: `${tripPrompt}`,
     temperature: 0.83,
     max_tokens: 200,
   });
 
-  const basePromptOutput = baseCompletion.data.choices.pop();
-  console.log("basePromptOutput", basePromptOutput);
+  const text = tripBaseCompletion.data.choices.pop();
+  console.log("basePromptOutput", text);
 
-  response.status(200).json({ output: basePromptOutput });
+  const titlePrompt = generateTitlePromptFromInput(text.text);
+
+  const titleBaseCompletion = await openai.createCompletion({
+    model: "text-davinci-003",
+    prompt: `${titlePrompt}`,
+    temperature: 0.7,
+    max_tokens: 10,
+  });
+  let title = titleBaseCompletion.data.choices.pop();
+
+  //Clean title
+  title = title.replaceAll('"', "");
+  title = title.replaceAll("!", "");
+
+  const tripObject = {
+    text: text.text,
+    title: title.text,
+    prompts: { titlePrompt, tripPrompt },
+  };
+  console.log(tripObject);
+  response.status(200).json(tripObject);
 };
 
 const callOpenAIDev = (request, response) => {
@@ -42,4 +68,4 @@ const callOpenAIDev = (request, response) => {
     1000
   );
 };
-export default callOpenAIDev;
+export default callOpenAI;

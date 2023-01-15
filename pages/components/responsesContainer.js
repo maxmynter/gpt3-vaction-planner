@@ -1,10 +1,11 @@
-import { useState } from "react";
 import DisplayResponse from "./displayResponse";
 import HighlightedResponse from "./highlightedResponse";
 
-const ResponsesContainer = ({ responses }) => {
-  const [highlightedResponse, setHighlightedResponse] = useState(null);
-
+const ResponsesContainer = ({
+  responses,
+  highlightedResponse,
+  setHighlightedResponse,
+}) => {
   return (
     <>
       <HighlightedResponse response={highlightedResponse} />
@@ -12,7 +13,7 @@ const ResponsesContainer = ({ responses }) => {
         {responses.length > 0 &&
           responses.map((response) => (
             <DisplayResponse
-              key={response}
+              key={response._id} // TODO on Click scroll to Highlighted response, New return should be on upper left, fit content to highlighted, remove '"' from title
               response={response}
               highlightResponse={setHighlightedResponse}
               highlighted={highlightedResponse === response}

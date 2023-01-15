@@ -3,7 +3,8 @@ const HighlightedResponse = ({ response }) => {
     <>
       {response && (
         <div className="highlighted-response">
-          <span className="highlighted-response-content">{response}</span>
+          <h3 className="highlighted-response-title">{response.title}</h3>
+          <span className="highlighted-response-text">{response.text}</span>
         </div>
       )}
     </>
