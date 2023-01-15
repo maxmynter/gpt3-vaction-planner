@@ -10,11 +10,12 @@ const ResponsesContainer = ({
     <>
       <HighlightedResponse response={highlightedResponse} />
       <div className="responses-container">
+        {console.log(responses, responses.length)}
         {responses.length > 0 &&
           responses.map((response) => (
             <DisplayResponse
-              key={response._id} // TODO on Click scroll to Highlighted response, New return should be on upper left, fit content to highlighted, remove '"' from title
               response={response}
+              key={response._id}
               highlightResponse={setHighlightedResponse}
               highlighted={highlightedResponse === response}
             />
