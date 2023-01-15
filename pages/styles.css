@@ -230,3 +230,7 @@ body {
     url("../resources/images/trip_backgrounds/roads/road2.jpg");
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.8);
 }
+
+.gpt-response:hover {
+  transform: scale(1.15);
+}
