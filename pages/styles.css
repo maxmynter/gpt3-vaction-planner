@@ -13,6 +13,7 @@ body {
   font-family: Helvetica, Sans-Serif;
   color: #023047;
   background: transparent;
+  margin: 0;
 }
 
 .root {
@@ -20,11 +21,30 @@ body {
 }
 
 .app {
-  margin: auto;
   width: 100%;
   height: 100%;
 }
-.title {
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+    0.25turn,
+    rgba(63, 135, 166, 0.85),
+    rgba(235, 248, 225, 0.85),
+    rgba(246, 157, 60, 0.85)
+  );
+  margin: 0;
+  margin-bottom: 3%;
+}
+
+.header-link {
+  padding: 1%;
+}
+
+.title,
+.section-header {
   margin-top: 5%;
   text-align: center;
 }
