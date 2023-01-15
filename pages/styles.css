@@ -49,6 +49,24 @@ body {
   text-align: center;
 }
 
+.section-header {
+  width: 60%;
+  margin: auto;
+  padding-bottom: 1%;
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(
+      0.25turn,
+      rgba(63, 135, 166, 0),
+      rgba(63, 135, 166, 0.5),
+      rgba(63, 135, 166, 0.75),
+      rgba(235, 248, 225, 1),
+      rgba(246, 157, 60, 0.75),
+      rgba(246, 157, 60, 0.5),
+      rgba(246, 157, 60, 0)
+    )
+    1;
+}
+
 .user-interaction {
   margin: 0 auto;
   width: 70%;
