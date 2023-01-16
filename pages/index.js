@@ -1,11 +1,15 @@
-import Header from "./components/header";
+import Header from "./components/siteComponents/header";
 import InspireSearch from "./components/inspireSearch";
+import Footer from "./components/siteComponents/footer";
 
 const App = () => {
   return (
     <div className="app">
       <Header />
-      <InspireSearch />
+      <div className="search-container">
+        <InspireSearch />
+      </div>
+      <Footer />
     </div>
   );
 };

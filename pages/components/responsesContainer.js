@@ -7,10 +7,9 @@ const ResponsesContainer = ({
   setHighlightedResponse,
 }) => {
   return (
-    <>
+    <div>
       <HighlightedResponse response={highlightedResponse} />
       <div className="responses-container">
-        {console.log(responses, responses.length)}
         {responses.length > 0 &&
           responses.map((response) => (
             <DisplayResponse
@@ -21,7 +20,7 @@ const ResponsesContainer = ({
             />
           ))}
       </div>
-    </>
+    </div>
   );
 };
 

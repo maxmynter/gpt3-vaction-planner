@@ -13,14 +13,14 @@ const InspireSearch = () => {
     setGptResponses([newResponse, ...currentResponses]);
   };
   return (
-    <>
+    <div className="search-container">
       <Title />
       <UserInput addQueryResponse={addQueryResponse} />
       {currentResponses.length > 0 && <SectionHeader text={"Your Trips"} />}
       {currentResponses.map((response) => (
         <HighlightedResponse response={response} />
       ))}
-    </>
+    </div>
   );
 };
 

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import ResponsesContainer from "./components/responsesContainer";
-import Header from "./components/header";
+import Header from "./components/siteComponents/header";
 import SectionHeader from "./components/sectionHeader";
+import Footer from "./components/siteComponents/footer";
 
 const PopularTrips = () => {
   const [trips, setTrips] = useState([]);
@@ -32,6 +33,7 @@ const PopularTrips = () => {
         setHighlightedResponse={setHighlightedResponse}
         responses={trips}
       />
+      <Footer />
     </div>
   );
 };
