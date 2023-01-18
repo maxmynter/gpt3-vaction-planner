@@ -10,7 +10,8 @@ const ResponsesContainer = ({
     <div>
       <HighlightedResponse response={highlightedResponse} />
       <div className="responses-container">
-        {responses.length > 0 &&
+        {responses !== undefined &&
+          responses.length > 0 &&
           responses.map((response) => (
             <DisplayResponse
               response={response}
