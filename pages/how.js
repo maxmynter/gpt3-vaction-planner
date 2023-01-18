@@ -6,8 +6,10 @@ const HowItWorks = () => {
   return (
     <div className="app">
       <Header />
-      <div className="white-box">
-        <SectionHeader text="Still a ToDo" />
+      <div className="content-container">
+        <div className="white-box">
+          <SectionHeader text="Still a ToDo" />
+        </div>
       </div>
       <Footer />
     </div>

@@ -13,7 +13,7 @@ const InspireSearch = () => {
     setGptResponses([newResponse, ...currentResponses]);
   };
   return (
-    <div className="search-container">
+    <div className="content-container">
       <div className="white-box">
         <Title />
         <UserInput addQueryResponse={addQueryResponse} />

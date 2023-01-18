@@ -27,16 +27,18 @@ const PopularTrips = () => {
   return (
     <div className="app">
       <Header />
-      {trips.length > 0 && (
-        <div className="white-box">
-          <SectionHeader text={"Trips from Others"} />
-          <ResponsesContainer
-            highlightedResponse={highlightedResponse}
-            setHighlightedResponse={setHighlightedResponse}
-            responses={trips}
-          />
-        </div>
-      )}
+      <div className="content-container">
+        {trips.length > 0 && (
+          <div className="white-box">
+            <SectionHeader text={"Trips from Others"} />
+            <ResponsesContainer
+              highlightedResponse={highlightedResponse}
+              setHighlightedResponse={setHighlightedResponse}
+              responses={trips}
+            />
+          </div>
+        )}
+      </div>
       <Footer />
     </div>
   );
