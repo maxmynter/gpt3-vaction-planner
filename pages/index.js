@@ -6,8 +6,10 @@ const App = () => {
   return (
     <div className="app">
       <Header />
-      <div className="search-container">
-        <InspireSearch />
+      <div className="content-container">
+        <div className="search-container">
+          <InspireSearch />
+        </div>
       </div>
       <Footer />
     </div>

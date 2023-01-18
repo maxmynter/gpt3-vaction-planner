@@ -9,6 +9,7 @@ const HowItWorks = () => {
       <div className="content-container">
         <div className="white-box">
           <SectionHeader text="Still a ToDo" />
+          <text>Dummy text</text>
         </div>
       </div>
       <Footer />
