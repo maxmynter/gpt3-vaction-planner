@@ -92,7 +92,11 @@ const UserInput = ({ addQueryResponse }) => {
           >
             {console.log(process.cwd())}
             {isGenerating ? (
-              <span> Loading </span>
+              <img
+                src="/static/icons/lightbulb.png"
+                alt="Loading"
+                className="img-rotate"
+              />
             ) : (
               <img src="/static/icons/lightbulb.png" alt="Inspire" />
             )}

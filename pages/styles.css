@@ -167,6 +167,7 @@ body {
 }
 
 .generate-button-text img,
+.generate-button-text img-rotate,
 .generate-button-empty-text img {
   max-width: 75%;
   max-height: 75%;
@@ -185,6 +186,18 @@ body {
 .user-input span,
 img {
   font-weight: bold;
+}
+
+.img-rotate {
+  animation: rotation 1s infinite linear;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 
 .buttons-container {
