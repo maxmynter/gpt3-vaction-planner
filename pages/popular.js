@@ -27,12 +27,16 @@ const PopularTrips = () => {
   return (
     <div className="app">
       <Header />
-      <SectionHeader text={"Trips from Others"} />
-      <ResponsesContainer
-        highlightedResponse={highlightedResponse}
-        setHighlightedResponse={setHighlightedResponse}
-        responses={trips}
-      />
+      {trips.length > 0 && (
+        <div className="white-box">
+          <SectionHeader text={"Trips from Others"} />
+          <ResponsesContainer
+            highlightedResponse={highlightedResponse}
+            setHighlightedResponse={setHighlightedResponse}
+            responses={trips}
+          />
+        </div>
+      )}
       <Footer />
     </div>
   );

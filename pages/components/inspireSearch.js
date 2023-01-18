@@ -14,12 +14,18 @@ const InspireSearch = () => {
   };
   return (
     <div className="search-container">
-      <Title />
-      <UserInput addQueryResponse={addQueryResponse} />
-      {currentResponses.length > 0 && <SectionHeader text={"Your Trips"} />}
-      {currentResponses.map((response) => (
-        <HighlightedResponse response={response} />
-      ))}
+      <div className="white-box">
+        <Title />
+        <UserInput addQueryResponse={addQueryResponse} />
+      </div>
+      {currentResponses.length > 0 && (
+        <div className="white-box">
+          <SectionHeader text={"Your Trips"} />
+          {currentResponses.map((response) => (
+            <HighlightedResponse response={response} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

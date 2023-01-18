@@ -90,7 +90,12 @@ const UserInput = ({ addQueryResponse }) => {
             }
             onClick={handleSubmit}
           >
-            {isGenerating ? <span> Loading </span> : <span> Inspire </span>}
+            {console.log(process.cwd())}
+            {isGenerating ? (
+              <span> Loading </span>
+            ) : (
+              <img src="/static/icons/lightbulb.png" alt="Inspire" />
+            )}
           </button>
         </div>
       </div>
