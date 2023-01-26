@@ -30,7 +30,7 @@ const dbTripsReducer = (state = [], action) => {
 
 export const initializeTrips = () => {
   return async (dispatch) => {
-    let trips = await getTripsFromDB();
+    const trips = await getTripsFromDB();
     dispatch({
       type: "INITIALIZE",
       trips,
