@@ -30,7 +30,6 @@ const UserInput = ({ addQueryResponse }) => {
   const handleSubmit = async () => {
     if (input.length > 0) {
       setIsGenerating(true);
-      console.log(input);
 
       const response = await fetch("../api/getGPTAnswer", {
         method: "POST",
@@ -53,8 +52,6 @@ const UserInput = ({ addQueryResponse }) => {
       });
 
       const newTripWithID = await responseOfPostToDB.json();
-
-      console.log("responseOfPostToDB", newTripWithID);
 
       addQueryResponse(newTripWithID);
       setInput("");
@@ -90,7 +87,6 @@ const UserInput = ({ addQueryResponse }) => {
             }
             onClick={handleSubmit}
           >
-            {console.log(process.cwd())}
             {isGenerating ? (
               <img
                 src="/static/icons/lightbulb.png"

@@ -18,10 +18,7 @@ Proposal: ${proposal}
 Title:`;
 
 const callOpenAI = async (request, response) => {
-  console.log("Calling openAI");
-  console.log(request.body);
   const tripPrompt = generateTripPromptFromInput(request.body);
-  console.log(tripPrompt);
 
   const tripBaseCompletion = await openai.createCompletion({
     model: "text-davinci-003",
@@ -31,7 +28,6 @@ const callOpenAI = async (request, response) => {
   });
 
   const text = tripBaseCompletion.data.choices.pop().text;
-  console.log("basePromptOutput", text);
 
   const titlePrompt = generateTitlePromptFromInput(text);
 
@@ -52,7 +48,6 @@ const callOpenAI = async (request, response) => {
     title: title,
     prompts: { titlePrompt, tripPrompt },
   };
-  console.log(tripObject);
   response.status(200).json(tripObject);
 };
 
