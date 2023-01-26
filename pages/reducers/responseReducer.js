@@ -1,7 +1,7 @@
 const responseReducer = (state = [], action) => {
   switch (action.type) {
     case "SET_RESPONSE":
-      return state.concat(action.response);
+      return [action.response].concat(state);
     default:
       return state;
   }

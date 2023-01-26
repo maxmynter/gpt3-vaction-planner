@@ -13,7 +13,7 @@ const PopularTrips = () => {
   const [highlightedResponse, setHighlightedResponse] = useState(null);
 
   useEffect(() => {
-    if (trips.length <= 0 || trips === newResponses) {
+    if (trips.length === 0) {
       dispatch(initializeTrips());
     }
   }, [dispatch]);

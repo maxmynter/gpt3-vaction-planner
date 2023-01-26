@@ -14,9 +14,9 @@ const getTripsFromDB = async () => {
 const dbTripsReducer = (state = [], action) => {
   switch (action.type) {
     case "INITIALIZE":
-      return action.trips; // Error here. How to use async action in reducer?
+      return action.trips;
     case "ADD":
-      return state.concat(action.response);
+      return [action.response].concat(state);
     default:
       return state;
   }
