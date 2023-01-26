@@ -1,29 +1,23 @@
 import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import ResponsesContainer from "./components/responsesContainer";
 import Header from "./components/siteComponents/header";
 import SectionHeader from "./components/sectionHeader";
 import Footer from "./components/siteComponents/footer";
+import { initializeTrips } from "./reducers/tripsInDBReducer";
 
 const PopularTrips = () => {
-  const [trips, setTrips] = useState([]);
+  const dispatch = useDispatch();
+  const trips = useSelector((state) => state.trips);
+  const newResponses = useSelector((state) => state.responses);
   const [highlightedResponse, setHighlightedResponse] = useState(null);
 
   useEffect(() => {
-    const getTripsFromDB = async () => {
-      const response = await fetch("../api/getTrips", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+    if (trips.length <= 0 || trips === newResponses) {
+      dispatch(initializeTrips());
+    }
+  }, [dispatch]);
 
-      let tripsFromDB = await response.json();
-
-      setTrips(tripsFromDB);
-    };
-
-    getTripsFromDB();
-  }, []);
   return (
     <div className="app">
       <Header />
