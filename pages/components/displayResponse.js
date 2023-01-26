@@ -3,9 +3,10 @@ import isInViewport from "../../utils/checkElementVisibility";
 
 const DisplayResponse = ({ response, highlightResponse, highlighted }) => {
   const [hover, setHover] = useState(false);
+  let style = {};
 
   if (response) {
-    const style = hover
+    style = hover
       ? {
           backgroundImage: `radial-gradient(rgba(0, 0, 0, 0), rgba(253, 252, 252, 0.5)),
     url(${response.backgroundImageURL})`,
@@ -14,8 +15,6 @@ const DisplayResponse = ({ response, highlightResponse, highlighted }) => {
           backgroundImage: `radial-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 1, 0.25)),
     url(${response.backgroundImageURL})`,
         };
-  } else {
-    const style = {};
   }
 
   const handleHighlight = (response) => {
