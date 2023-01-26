@@ -309,6 +309,11 @@ img {
   text-align: center;
 }
 
+.footer a:visited {
+  color: blue;
+  text-decoration: none;
+}
+
 .footer .dot {
   margin: 3px;
   height: 5px;

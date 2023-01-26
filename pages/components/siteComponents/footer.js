@@ -1,13 +1,13 @@
 const Footer = () => {
   return (
     <div className="footer">
-      <span> Max Mynter</span>
       <span className="dot"></span>
-      <span> Bismarckstr. 26</span>
+      <span>
+        Build with love by{" "}
+        <a href="https://twitter.com/MaxMynter">@MaxMynter</a> to learn and
+        grow. Feedback appreciated. Be nice :)
+      </span>
       <span className="dot"></span>
-      <span> 80803 München</span>
-      <span className="dot"></span>
-      <span> maxmynter[at]me[punkt]com</span>
     </div>
   );
 };
