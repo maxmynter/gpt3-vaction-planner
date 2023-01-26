@@ -51,15 +51,4 @@ const callOpenAI = async (request, response) => {
   response.status(200).json(tripObject);
 };
 
-const callOpenAIDev = (request, response) => {
-  setTimeout(
-    () =>
-      response.status(200).json({
-        output: {
-          text: `Sample return text that is used here for development purposes. ${Math.random()}`,
-        },
-      }),
-    1000
-  );
-};
 export default callOpenAI;
