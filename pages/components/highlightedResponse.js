@@ -7,9 +7,13 @@ const HighlightedResponse = ({ response }) => {
   )${bgImage}`,
   };
   return (
-    <div id="highlighted-responses-container" key={response.title}>
+    <div id="highlighted-responses-container">
       {response && (
-        <div className="highlighted-response" style={inlineStyles}>
+        <div
+          className="highlighted-response"
+          style={inlineStyles}
+          key={response.title}
+        >
           <h3 className="highlighted-response-title">{response.title}</h3>
           <span className="highlighted-response-text">{response.text}</span>
         </div>
