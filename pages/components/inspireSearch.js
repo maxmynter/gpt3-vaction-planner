@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { addResponse } from "../reducers/responseReducer";
 import { addResponseToTrips } from "../reducers/tripsInDBReducer";
 import { initializeTrips } from "../reducers/tripsInDBReducer";
+import getRandomImageURL from "../../utils/getRandomImages";
 import { useSelector, useDispatch } from "react-redux";
 import UserInput from "./userInput";
 import HighlightedResponse from "./highlightedResponse";
@@ -22,7 +23,10 @@ const InspireSearch = () => {
   }, []);
 
   const addQueryResponse = (newResponse) => {
-    response = { backgroundImageURL: getRandomImageURL(), ...newResponse };
+    const response = {
+      backgroundImageURL: getRandomImageURL(),
+      ...newResponse,
+    };
     setHighlightedResponse(response);
     dispatch(addResponse(response));
     dispatch(addResponseToTrips(response));
