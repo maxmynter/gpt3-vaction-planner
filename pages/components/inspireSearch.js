@@ -22,9 +22,10 @@ const InspireSearch = () => {
   }, []);
 
   const addQueryResponse = (newResponse) => {
-    setHighlightedResponse(newResponse);
-    dispatch(addResponse(newResponse));
-    dispatch(addResponseToTrips(newResponse));
+    response = { backgroundImageURL: getRandomImageURL(), ...newResponse };
+    setHighlightedResponse(response);
+    dispatch(addResponse(response));
+    dispatch(addResponseToTrips(response));
   };
 
   return (

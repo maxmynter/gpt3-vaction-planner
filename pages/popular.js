@@ -9,7 +9,6 @@ import { initializeTrips } from "./reducers/tripsInDBReducer";
 const PopularTrips = () => {
   const dispatch = useDispatch();
   const trips = useSelector((state) => state.trips);
-  const newResponses = useSelector((state) => state.responses);
   const [highlightedResponse, setHighlightedResponse] = useState(null);
 
   useEffect(() => {
