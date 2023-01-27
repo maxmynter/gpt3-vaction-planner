@@ -12,7 +12,7 @@ const HighlightedResponse = ({ response }) => {
         <div
           className="highlighted-response"
           style={inlineStyles}
-          key={response.title}
+          key={response._id + "_highlighted"}
         >
           <h3 className="highlighted-response-title">{response.title}</h3>
           <span className="highlighted-response-text">{response.text}</span>

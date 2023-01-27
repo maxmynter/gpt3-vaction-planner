@@ -1,6 +1,6 @@
 import "./styles.css";
-import responseReducer from "./reducers/responseReducer";
-import dbTripsReducer from "./reducers/tripsInDBReducer";
+import responseReducer from "../reducers/responseReducer";
+import dbTripsReducer from "../reducers/tripsInDBReducer";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 

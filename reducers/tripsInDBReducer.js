@@ -1,4 +1,4 @@
-import getRandomImageURL from "../../utils/getRandomImages";
+import getRandomImageURL from "../utils/getRandomImages";
 
 const getTripsFromDB = async () => {
   const response = await fetch("../api/getTrips", {
@@ -31,10 +31,7 @@ const dbTripsReducer = (state = [], action) => {
 export const initializeTrips = () => {
   return async (dispatch) => {
     const trips = await getTripsFromDB();
-    dispatch({
-      type: "INITIALIZE",
-      trips,
-    });
+    dispatch({ type: "INITIALIZE", trips });
   };
 };
 

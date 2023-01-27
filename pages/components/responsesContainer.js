@@ -15,7 +15,7 @@ const ResponsesContainer = ({
           responses.map((response) => (
             <DisplayResponse
               response={response}
-              key={response._id}
+              key={response._id + "_grid"}
               highlightResponse={setHighlightedResponse}
               highlighted={highlightedResponse === response}
             />

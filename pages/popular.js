@@ -4,7 +4,7 @@ import ResponsesContainer from "./components/responsesContainer";
 import Header from "./components/siteComponents/header";
 import SectionHeader from "./components/sectionHeader";
 import Footer from "./components/siteComponents/footer";
-import { initializeTrips } from "./reducers/tripsInDBReducer";
+import { initializeTrips } from "../reducers/tripsInDBReducer";
 
 const PopularTrips = () => {
   const dispatch = useDispatch();
