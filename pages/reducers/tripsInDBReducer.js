@@ -22,7 +22,7 @@ const dbTripsReducer = (state = [], action) => {
     case "INITIALIZE":
       return action.trips;
     case "ADD":
-      return [action.response].concat(state);
+      return [action.response, ...state];
     default:
       return state;
   }
