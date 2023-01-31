@@ -8,8 +8,13 @@ const HowItWorks = () => {
       <Header />
       <div className="content-container">
         <div className="white-box">
-          <SectionHeader text="Still a ToDo" />
-          <text>Dummy text</text>
+          <SectionHeader text="How it works" />
+          <text>
+            Read the story{" "}
+            <a href="https://maxmynter.hashnode.dev/building-a-gpt-3-webapp">
+              here
+            </a>
+          </text>
         </div>
       </div>
       <Footer />

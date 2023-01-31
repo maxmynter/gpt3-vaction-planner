@@ -73,6 +73,11 @@ body {
   padding: 1%;
   min-height: fit-content;
   justify-content: center;
+  text-align: center;
+}
+.white-box a {
+  text-decoration: none;
+  color: blue;
 }
 
 .title,
@@ -114,6 +119,7 @@ body {
   margin-top: 5%;
   margin-bottom: 5%;
 }
+
 .user-input-border-wrapper {
   height: 100%;
   padding: 3px; /*Border width with respect to user-input-border-wrapper */
