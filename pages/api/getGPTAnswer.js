@@ -7,13 +7,13 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const generateTripPromptFromInput = ({ input }) =>
-  `Task: Give me a travel iternary with locations and activities for travel according to the following specifications.
+  `Task: Give me a travel itinerary with locations and activities for travel according to the following specifications.
   Specifications: ${input.replaceAll(".", ",")}.
   Iternary:`;
 
 const generateTitlePromptFromInput = (
   proposal
-) => `Write a very short title for the following travel iternary.
+) => `Write a very short title for the following travel itinerary.
 Proposal: ${proposal}
 Title:`;
 
