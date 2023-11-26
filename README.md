@@ -12,6 +12,6 @@ You need to add a `.env` file in the root repository and add a `MONGODB_URI` as 
 
 ## Resources
 
-The idea and preliminary skills necessary to build this were inspired by the following MOOOC: https://buildspace.so/builds/ai-writer
+The idea and preliminary skills necessary to build this were inspired by the following MOOC: https://buildspace.so/builds/ai-writer
 
 The assets were created with https://lexica.art/.
